@@ -1,7 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 void main() {
-  runApp(MyApp());
+  // runApp(MyApp());
+  WidgetsFlutterBinding.ensureInitialized();
+  SystemChrome.setPreferredOrientations([DeviceOrientation.landscapeLeft, DeviceOrientation.landscapeRight]).then((_){
+    // runApp(MyApp());
+    SystemChrome.setEnabledSystemUIOverlays([]).then((_){
+      runApp(MyApp());
+    });
+  });
 }
 
 class MyApp extends StatelessWidget {
